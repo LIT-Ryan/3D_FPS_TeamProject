@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1209182348854600096}
   m_Layer: 0
   m_Name: Bullet1
-  m_TagString: Bullet
+  m_TagString: MagicBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 59968067304132138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4764355367329497751}
   m_Father: {fileID: 0}
@@ -96,10 +96,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.02
+  m_Radius: 1.18
   m_Height: 0.28
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 3.21}
+  m_Center: {x: 0, y: 0, z: 4.99}
 --- !u!54 &6841878929743686948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &4656421085795857937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,21 +148,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936415888582391158}
     m_Modifications:
+    - target: {fileID: 2169556549538044789, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_TagString
+      value: MagicBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 4233307556039044306, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4233307556039044306, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4233307556039044306, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4233307556039044306, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.2
+      value: 4.88
       objectReference: {fileID: 0}
     - target: {fileID: 4233307556039044306, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -176,21 +180,25 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Texture
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6981349611424125604, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_TagString
+      value: MagicBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 6981349611424125605, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349611424125605, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349611424125605, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349611424125605, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.1
+      value: 11.14
       objectReference: {fileID: 0}
     - target: {fileID: 6981349611424125605, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -211,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 6981349613097946790, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_Name
       value: Bullet_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981349613097946790, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_TagString
+      value: MagicBullet
       objectReference: {fileID: 0}
     - target: {fileID: 6981349613097946808, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: simulationSpeed
@@ -234,15 +246,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981349613097946809, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349613097946809, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349613097946809, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981349613097946809, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_LocalPosition.x

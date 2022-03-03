@@ -8,7 +8,7 @@ public class ManaBar : MonoBehaviour
 {
     public Slider manaBar;
 
-    private int maxStamina = 100;
+    public int maxStamina = 100;
     private int currentStamina;
     public bool stamianaRegen = false;
 

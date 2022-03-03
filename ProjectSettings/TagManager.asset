@@ -12,6 +12,8 @@ TagManager:
   - Guardian
   - DropLootTraker
   - MagicBullet
+  - Ground
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Ground
   - PostProcessing
   - Not in Reflection
   - 

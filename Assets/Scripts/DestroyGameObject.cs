@@ -28,6 +28,11 @@ public class DestroyGameObject : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collis.collider.tag == "Wall")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
+        }
 
 
     }
