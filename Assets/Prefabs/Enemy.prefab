@@ -121,8 +121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5804905399498833373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: -0.015875222, y: 0.7784514, z: 0.2107925}
+  m_LocalScale: {x: 0.8044583, y: 0.8044583, z: 0.8044583}
   m_Children: []
   m_Father: {fileID: 5804905401264099585}
   m_RootOrder: 5
@@ -153,7 +153,7 @@ VisualEffect:
       - m_Value: {x: 42.85366, y: 42.385315, z: 21.539013, w: 0}
         m_Name: New Color 1
         m_Overridden: 1
-      - m_Value: {x: 766.9961, y: 132.51765, z: 0, w: 1}
+      - m_Value: {x: 1024, y: 6.9520073, z: 0, w: 1}
         m_Name: New Color
         m_Overridden: 1
     m_Uint:
@@ -267,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5804905399591075022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.061, y: 0, z: -0.109}
+  m_LocalPosition: {x: -0.060875222, y: 0.68245137, z: -0.10920749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5804905401264099585}
@@ -790,14 +790,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5804905400723419112}
-  m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0.00000011920929, y: 1.204, z: 0.00000032782555}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: -0.6173573, y: 0.6173573, z: -0.34477535, w: 0.34477535}
+  m_LocalPosition: {x: 0.00012489806, y: 1.8864514, z: -0.00020716623}
+  m_LocalScale: {x: 0.27894002, y: 0.27894002, z: 0.27894002}
   m_Children:
   - {fileID: 5804905399946389388}
   m_Father: {fileID: 5804905401264099585}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 121.636, z: -90}
 --- !u!33 &5804905400723419116
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1063,9 +1063,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.577058
-  m_Height: 1.5267444
+  m_Height: 1.154116
   m_Direction: 1
-  m_Center: {x: 4.6082632e-10, y: -0.15337217, z: -0.032941997}
+  m_Center: {x: 8.6226337e-10, y: 0.80427355, z: -0.032941997}
 --- !u!195 &5804905401264099591
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1205,6 +1205,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c43ab126cff68ae4f8ab0f62d32101c9, type: 3}
       propertyPath: m_Name
       value: OniMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626878610605388836, guid: c43ab126cff68ae4f8ab0f62d32101c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626878610605388836, guid: c43ab126cff68ae4f8ab0f62d32101c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626878610605388836, guid: c43ab126cff68ae4f8ab0f62d32101c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 3084565882473296211, guid: c43ab126cff68ae4f8ab0f62d32101c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
