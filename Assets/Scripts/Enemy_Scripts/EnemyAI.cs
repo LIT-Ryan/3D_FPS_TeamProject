@@ -52,6 +52,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         currentHealth = maxHealth;
         enemyHealthBar.SetMaxHealth(maxHealth);
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
@@ -80,6 +81,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -159,7 +161,7 @@ public class EnemyAI : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkpoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if (Physics.Raycast(walkpoint, -transform.up, 2f, WhatIsGround))
+        if (Physics.Raycast(walkpoint, -transform.up, 5f, WhatIsGround))
             walkPointSet = true;
     }
     private void ChasePlayer()
@@ -184,7 +186,7 @@ public class EnemyAI : MonoBehaviour
 
             GameObject rb = Instantiate(projecttile, attackPoint.position, Quaternion.identity);
             rb.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.Impulse);
-            rb.GetComponent<Rigidbody>().AddForce(transform.up * 10f, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.up * 8f, ForceMode.Impulse);
             
             
 
