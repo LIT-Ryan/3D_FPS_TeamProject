@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
+    public Patroller patroller;
+
     //Attackting
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -81,15 +83,19 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) patroling();
+    
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
+        if(!playerInSightRange && !playerInAttackRange)
+        {
+            patroller.enabled = true;
+        }
         /// TIME STOP
         if (!timemanager.TimeIsStopped)
         {
@@ -113,9 +119,10 @@ public class EnemyAI : MonoBehaviour
             //anim.speed = 1f;
             isStoped = false;
             stopCover.SetActive(false);
-        }
-       
 
+        }
+
+        return;
     }
 
     void OnCollisionEnter(Collision collisionInfo)
@@ -138,37 +145,12 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    private void patroling()
-    {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkpoint);
-        Vector3 distanceToWalkPoint = transform.position - walkpoint;
-
-        // walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-
-    }
-
-
-    private void SearchWalkPoint()
-
-    {
-        // Calcultate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkpoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if (Physics.Raycast(walkpoint, -transform.up, 5f, WhatIsGround))
-            walkPointSet = true;
-    }
+   
     private void ChasePlayer()
 
     {
         agent.SetDestination(player.position);
-
+        patroller.enabled = false;
 
     }
 
@@ -176,6 +158,8 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
 
     {
+        patroller.enabled = false;
+
         //make sure enemy does not move
         agent.SetDestination(transform.position);
         transform.LookAt(player);

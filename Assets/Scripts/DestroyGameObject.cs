@@ -34,6 +34,10 @@ public class DestroyGameObject : MonoBehaviour
             Destroy(gameObject);
         }
 
-
+        if (collis.collider.tag == "Ground")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
+        }
     }
 }
