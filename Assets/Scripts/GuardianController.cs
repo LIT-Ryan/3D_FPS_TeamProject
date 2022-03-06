@@ -51,5 +51,6 @@ public class GuardianController : MonoBehaviour
             Debug.Log("Spawn");
             SpawnGuardian();
         }
+
     }
 }
