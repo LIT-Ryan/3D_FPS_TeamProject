@@ -73,6 +73,6 @@ public class ShootingController : MonoBehaviour
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.transform.forward = directionWithSpread.normalized;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * range, ForceMode.Impulse);
-        Destroy(currentBullet, 5f);
+        Destroy(currentBullet, 3f);
     }
 }

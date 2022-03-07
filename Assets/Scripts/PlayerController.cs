@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(movementVector * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false) //Stop Time when Q is pressed
+        if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false) //Stop Time when R is pressed
         {
             timemanager.StopTime();
             StaminaBar.instance.UseStamina(50);

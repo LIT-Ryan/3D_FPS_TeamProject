@@ -39,5 +39,16 @@ public class DestroyGameObject : MonoBehaviour
             Debug.Log("Hit player");
             Destroy(gameObject);
         }
+
+        if (collis.collider.tag == "Bullet1")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
+        }
+        if (collis.collider.tag == "Untagged")
+        {
+            Debug.Log("Hit player");
+            Destroy(gameObject);
+        }
     }
 }

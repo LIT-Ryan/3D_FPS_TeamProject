@@ -99,7 +99,7 @@ CapsuleCollider:
   m_Radius: 1.18
   m_Height: 0.28
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 4.99}
+  m_Center: {x: 0, y: 0, z: 2.26}
 --- !u!54 &6841878929743686948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,9 +113,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &4656421085795857937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e5d6d74fcf8e44db1b233811bf27ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBeforeAffected: 0.02
+  TimeBeforeAffected: 0.05
 --- !u!114 &1209182348854600096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +148,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936415888582391158}
     m_Modifications:
+    - target: {fileID: 1196117334124378310, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_Time
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196117334124378310, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196117334124378310, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42240777a86a9e24691387b0258af1d2, type: 2}
+    - target: {fileID: 1196117334124378310, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2169556549538044789, guid: 4b19ea5a19e66eb4585794c283894fed, type: 3}
       propertyPath: m_TagString
       value: MagicBullet
