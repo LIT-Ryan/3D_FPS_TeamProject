@@ -14,6 +14,7 @@ TagManager:
   - MagicBullet
   - Ground
   - Wall
+  - EBullet
   layers:
   - Default
   - TransparentFX

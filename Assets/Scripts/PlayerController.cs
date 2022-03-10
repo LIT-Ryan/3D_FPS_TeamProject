@@ -28,15 +28,26 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 movementVector = Vector3.zero;
     public Vector3 inputVector = Vector3.zero;
-    
+
+    public int maxHealth = 100;
+    public int currentHealth;
+    public PlayerHealthBar playerHealthBar;
+
+    public GameObject gameOverPanel;
+    public MouseLook mouseLookScript;
+    public bool isOver;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        playerHealthBar.SetMaxHealth(maxHealth);
+
         speedUp = false;
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
 
         currentPower = 0;
         powerBar.SetMaxPower(maxPower);
+        isOver = false;
 
     }
 
@@ -80,14 +91,50 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-       
-
-
-
-
+    
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+    }
+
+
+    public void TakeDamage(int damage)
+
+    {
+        currentHealth -= damage;
+        playerHealthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+    }
+
+    public void Die()
+    {
+
+        Cursor.lockState = CursorLockMode.Confined;
+        mouseLookScript.enabled = false;
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+        isOver = true;
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+       
+        if (collisionInfo.collider.tag == "EBullet")
+        {
+            Debug.Log("EBullet Hit");
+            TakeDamage(5);
+        }
+        if (collisionInfo.collider.tag == "Enemy")
+        {
+            Debug.Log("E Hit");
+            TakeDamage(5);
+        }
+
 
     }
 }

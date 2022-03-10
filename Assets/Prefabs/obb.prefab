@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4701070049809989506}
   m_Layer: 0
   m_Name: obb
-  m_TagString: Bullet1
+  m_TagString: EBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
