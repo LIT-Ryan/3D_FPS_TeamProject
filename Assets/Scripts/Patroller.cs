@@ -10,11 +10,14 @@ public class Patroller : MonoBehaviour
     public Transform[] patrolTargets;
     private int destPoint;
     bool arrived;
-
+  
+  
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        
+      
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class Patroller : MonoBehaviour
         }
         if (patrolling)
         {
+          
+                
             if (agent.remainingDistance < agent.stoppingDistance)
             {
                 if (!arrived)

@@ -43,12 +43,15 @@ public class EnemyAI : MonoBehaviour
     public GameObject DropLootPrefab;
     public GameObject stopCover;
 
+    public Animator theAnimator;
+
+   
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
         agent = GetComponent<NavMeshAgent>();
 
-
+       
     }
 
     // Start is called before the first frame update
@@ -60,6 +63,7 @@ public class EnemyAI : MonoBehaviour
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
 
         dropLootTarget = GameObject.FindWithTag("DropLootTraker");
+      
     }
     public void TakeDamage(int damage)
 
@@ -83,7 +87,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -159,29 +163,30 @@ public class EnemyAI : MonoBehaviour
 
     {
         patroller.enabled = false;
-
+        theAnimator.SetBool("Attack", true);
         //make sure enemy does not move
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        if(!alreadyAttacked )
+        if (!alreadyAttacked)
         {
             // attack code
 
             GameObject rb = Instantiate(projecttile, attackPoint.position, Quaternion.identity);
             rb.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.Impulse);
             rb.GetComponent<Rigidbody>().AddForce(transform.up * 8f, ForceMode.Impulse);
-            
-            
+            theAnimator.SetBool("Attack", true);
+
 
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            Destroy(rb,2f);
+            Destroy(rb, 2f);
 
 
             // Destroy(this.gameObject, GetComponent<ParticleSystem>().main.duration);
         }
+        else { theAnimator.SetBool("Attack", false); }
 
     }
 
@@ -190,7 +195,7 @@ public class EnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
 
-
+      
     }
 
 
