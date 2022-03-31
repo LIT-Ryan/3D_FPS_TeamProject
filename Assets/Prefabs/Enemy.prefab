@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480957939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.55, y: 0, z: -4.58}
+  m_LocalPosition: {x: 3.04, y: 0, z: -4.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1326293158}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972834291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.32, y: 0, z: 4.18}
+  m_LocalPosition: {x: 1.07, y: 0, z: 10.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1326293158}
@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663678139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4, y: 0, z: -2.15}
+  m_LocalPosition: {x: -4.93, y: 0, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1326293158}
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135212675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.08, y: 0, z: 2.04}
+  m_LocalPosition: {x: 8.07, y: 0, z: 6.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1326293158}
@@ -1301,8 +1301,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   isStoped: 0
-  walkpoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
   patroller: {fileID: 468540728}
   timeBetweenAttacks: 1.2
   projecttile: {fileID: 5125999535935760989, guid: a1216ef449b38284f9f05ed1f1687304, type: 3}
@@ -1314,6 +1312,8 @@ MonoBehaviour:
   DropLootPrefab: {fileID: 2112088666514474900, guid: 47279cc9b81f2ab4bb572ffd566fb1a3, type: 3}
   stopCover: {fileID: 1953726013282583204}
   theAnimator: {fileID: 1505042335617432968}
+  impactEffectEnemy: {fileID: 259434547514622286, guid: d0ba4cf829f417541898407093089e6f, type: 3}
+  impactEffectEnemyDie: {fileID: 259434547514622286, guid: 110a889f7f593c548b03f3ba5b501341, type: 3}
 --- !u!54 &5804905401264099595
 Rigidbody:
   m_ObjectHideFlags: 0
