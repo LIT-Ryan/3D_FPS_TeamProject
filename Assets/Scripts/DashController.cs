@@ -5,7 +5,7 @@ using UnityEngine;
 public class DashController : MonoBehaviour
 {
     public bool isDashing;
-    private int dashAttempts;
+    public int dashAttempts;
     private float dashStartTime;
 
     PlayerController playerController;
@@ -28,6 +28,7 @@ public class DashController : MonoBehaviour
     void Update()
     {
         HandleDash();
+        Debug.Log(isDashing);
         
     }
 
@@ -37,7 +38,7 @@ public class DashController : MonoBehaviour
 
         if (isTryingToDash && !isDashing)
         {
-            if ((dashAttempts <= 50) && (ManaBar.instance.stamianaRegen == false))
+            if ( ManaBar.instance.stamianaRegen == false)
             {
                 OnStartDash();
                

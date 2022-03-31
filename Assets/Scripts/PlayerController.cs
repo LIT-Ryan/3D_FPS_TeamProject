@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
     {
 
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         mouseLookScript.enabled = false;
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;

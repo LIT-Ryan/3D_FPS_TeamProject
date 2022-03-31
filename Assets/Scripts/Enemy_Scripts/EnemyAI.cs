@@ -113,7 +113,8 @@ public class EnemyAI : MonoBehaviour
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 10f * Time.deltaTime); //Look at player
-                //anim.Play("Attack");
+                                                                                                                                                                         //anim.Play("Attack");
+                theAnimator.SetBool("Attack", true);
             }
         }
         if (timemanager.TimeIsStopped)
@@ -121,14 +122,15 @@ public class EnemyAI : MonoBehaviour
             agent.velocity = Vector3.zero; // stop moving
             isStoped = true;
             // anim.speed = 0f;  //stop the animation
-            stopCover.SetActive(true); 
+            stopCover.SetActive(true);
+            theAnimator.SetBool("Attack", false);
         }
         else
         {
             //anim.speed = 1f;
             isStoped = false;
             stopCover.SetActive(false);
-
+            theAnimator.SetBool("Attack", true);
         }
 
         return;

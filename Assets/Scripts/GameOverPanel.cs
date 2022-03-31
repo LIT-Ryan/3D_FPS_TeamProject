@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverPanel : MonoBehaviour
 {
- 
-    
 
+
+    private void Start()
+    {
+       
+        
+    }
 
     void Update()
     {
