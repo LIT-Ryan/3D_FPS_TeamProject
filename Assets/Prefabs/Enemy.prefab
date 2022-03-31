@@ -1304,7 +1304,7 @@ MonoBehaviour:
   walkpoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   patroller: {fileID: 468540728}
-  timeBetweenAttacks: 1.5
+  timeBetweenAttacks: 1.2
   projecttile: {fileID: 5125999535935760989, guid: a1216ef449b38284f9f05ed1f1687304, type: 3}
   attackPoint: {fileID: 5804905400133957163}
   sightRange: 25

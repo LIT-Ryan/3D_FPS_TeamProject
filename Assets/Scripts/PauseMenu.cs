@@ -54,6 +54,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("AlphaScene");
+        Cursor.visible = false;
     }
 
     public void QuitGame()

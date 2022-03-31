@@ -21,9 +21,9 @@ public class EnemyAI : MonoBehaviour
     public bool isStoped;
     //patroling
 
-    public Vector3 walkpoint;
+   // public Vector3 walkpoint;
     bool walkPointSet;
-    public float walkPointRange;
+   // public float walkPointRange;
 
     public Patroller patroller;
 
@@ -82,6 +82,7 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
         GameObject ultBall = Instantiate(DropLootPrefab, transform.position, Quaternion.identity);
         ultBall.GetComponent<Follow>().Target = dropLootTarget.transform;
+        Destroy(ultBall, 3f) ;
     }
 
     // Update is called once per frame
@@ -144,7 +145,7 @@ public class EnemyAI : MonoBehaviour
         if (collisionInfo.collider.tag == "MagicBullet")
         {
             Debug.Log("Bullet1 Hit");
-            TakeDamage(15);
+            TakeDamage(10);
         }
 
     }
@@ -173,7 +174,7 @@ public class EnemyAI : MonoBehaviour
             // attack code
 
             GameObject rb = Instantiate(projecttile, attackPoint.position, Quaternion.identity);
-            rb.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
             rb.GetComponent<Rigidbody>().AddForce(transform.up * 8f, ForceMode.Impulse);
             theAnimator.SetBool("Attack", true);
 
