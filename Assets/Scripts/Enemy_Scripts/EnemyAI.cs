@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject stopCover;
 
     public Animator theAnimator;
-    public GameObject impactEffectEnemy;
+   
     public GameObject impactEffectEnemyDie;
 
     private void Awake()
@@ -80,10 +80,9 @@ public class EnemyAI : MonoBehaviour
 
     void Die()
     {
-        GameObject effectIns = (GameObject)Instantiate(impactEffectEnemy, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
+        
         GameObject effectInst = (GameObject)Instantiate(impactEffectEnemyDie, transform.position, transform.rotation);
-        Destroy(effectInst, 1f);
+        Destroy(effectInst, 2f);
         Destroy(gameObject);
         GameObject ultBall = Instantiate(DropLootPrefab, transform.position, Quaternion.identity);
         ultBall.GetComponent<Follow>().Target = dropLootTarget.transform;
