@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
+    bool isReadyShoot;
     public GameObject projecttile;
 
     public Transform attackPoint;
@@ -83,7 +84,7 @@ public class EnemyAI : MonoBehaviour
         
         GameObject effectInst = (GameObject)Instantiate(impactEffectEnemyDie, transform.position, transform.rotation);
         Destroy(effectInst, 2f);
-        Destroy(gameObject);
+        Destroy(gameObject,0.2f);
         GameObject ultBall = Instantiate(DropLootPrefab, transform.position, Quaternion.identity);
         ultBall.GetComponent<Follow>().Target = dropLootTarget.transform;
         Destroy(ultBall, 3f) ;
@@ -114,23 +115,29 @@ public class EnemyAI : MonoBehaviour
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), 10f * Time.deltaTime); //Look at player
                                                                                                                                                                          //anim.Play("Attack");
-                theAnimator.SetBool("Attack", true);
+               // theAnimator.SetBool("Attack", true);
             }
+
         }
         if (timemanager.TimeIsStopped)
         {
+           
             agent.velocity = Vector3.zero; // stop moving
             isStoped = true;
             // anim.speed = 0f;  //stop the animation
             stopCover.SetActive(true);
-            theAnimator.SetBool("Attack", false);
+            theAnimator.enabled = false;
+            isReadyShoot = false;
         }
         else
         {
+            
             //anim.speed = 1f;
             isStoped = false;
             stopCover.SetActive(false);
-            theAnimator.SetBool("Attack", true);
+           // theAnimator.SetBool("Attack", true);
+            theAnimator.enabled = true;
+            isReadyShoot = true;
         }
 
         return;
@@ -169,13 +176,14 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
 
     {
+       theAnimator.SetBool("Attack", true);
         patroller.enabled = false;
-        theAnimator.SetBool("Attack", true);
+        
         //make sure enemy does not move
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        if (!alreadyAttacked)
+        if (!alreadyAttacked && isReadyShoot)
         {
             // attack code
 

@@ -16,41 +16,58 @@ public class ThrowableSword : MonoBehaviour
 
 
     public GameObject guardian;
-    //public GameObject returnSwdUI;
+    public GameObject returnSwdUI;
     PlayerController playerPower;
     public int power = 20;
     public GameObject talisSword;
+    public bool swordCalled = false;
 
+
+    private void Start()
+    {
+    
+    }
     void Awake()
     {
         throwed = true;
         throwOut = false;
         playerPower = FindObjectOfType<PlayerController>();
+
     }
     void Update()
     {
-        if(playerPower.currentPower >= playerPower.maxPower)
+        
+        if ((playerPower.currentPower <= power) && (Input.GetKeyDown(KeyCode.V)))
+        {
+            Debug.Log("Not Enough Power");
+            
+        }
+        if((playerPower.currentPower >= power) && (Input.GetKeyDown(KeyCode.V)) && (swordCalled == false))
         {
             talisSword.SetActive(true);
+            swordCalled = true;
+        }
+        else if ((playerPower.currentPower >= power) && (Input.GetKeyDown(KeyCode.V)) && (swordCalled == true))
+        {
+            talisSword.SetActive(false);
+            swordCalled = false;
         }
 
-        
-
-        if ((Input.GetKeyDown(KeyCode.V)) && (throwed == true) && (playerPower.currentPower >= playerPower.maxPower))
+        if ( (Input.GetButtonDown("Fire2")) && (throwed == true) && (playerPower.currentPower >= playerPower.maxPower) && (swordCalled == true))
         {
             throwed = false;
             playerPower.currentPower = playerPower.currentPower - power;
             ThrowSw();
             guardian.SetActive(true);
-            // returnSwdUI.SetActive(true);
+            returnSwdUI.SetActive(true);
 
         }
-        else if (Input.GetKeyDown(KeyCode.V) && (throwOut = true) && (throwed == false))
+        else if (Input.GetKeyDown(KeyCode.V) && (throwOut == true) && (throwed == false) && (swordCalled == true))
         {
             throwed = true;
-
+            swordCalled = false;
             ReturnSw();
-            //returnSwdUI.SetActive(false);
+            returnSwdUI.SetActive(false);
         }
         else if (isReturning)
         {

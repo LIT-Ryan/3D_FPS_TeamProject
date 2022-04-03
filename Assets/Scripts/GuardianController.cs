@@ -10,7 +10,7 @@ public class GuardianController : MonoBehaviour
 
     public ThrowableSword throwSword;
 
-    //public GameObject returnSwdUI;
+    public GameObject returnSwdUI;
 
     Animator anim;
 
@@ -32,10 +32,10 @@ public class GuardianController : MonoBehaviour
     {
 
         GameObject currentGuardian = Instantiate(guardian, spawnPoint.position, Quaternion.identity);
-        Destroy(currentGuardian, 5f);
+        Destroy(currentGuardian, 15f);
         throwSword.ReturnSw();
         throwSword.throwed = true;
-       // returnSwdUI.SetActive(false);
+       returnSwdUI.SetActive(false);
 
     }
 

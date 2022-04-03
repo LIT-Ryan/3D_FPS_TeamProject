@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8817801464198028896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.79, y: -0.38, z: 10.710001}
+  m_LocalPosition: {x: -8.57, y: -0.38, z: 10.65}
   m_LocalScale: {x: 0.05000001, y: 0.05, z: 0.05000001}
   m_Children: []
   m_Father: {fileID: 8817801466176252297}
@@ -10070,7 +10070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8817801465408946174
 Transform:
   m_ObjectHideFlags: 0
@@ -20162,8 +20162,9 @@ MonoBehaviour:
   throwed: 0
   throwOut: 0
   guardian: {fileID: 8817801465408946175}
-  power: 50
+  power: -208
   talisSword: {fileID: 8817801464368883548}
+  swordCalled: 0
 --- !u!1 &8817801466112215070
 GameObject:
   m_ObjectHideFlags: 0
@@ -20281,6 +20282,12 @@ MonoBehaviour:
   isGrounded: 0
   movementVector: {x: 0, y: 0, z: 0}
   inputVector: {x: 0, y: 0, z: 0}
+  maxHealth: 100
+  currentHealth: 0
+  playerHealthBar: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  mouseLookScript: {fileID: 0}
+  isOver: 0
 --- !u!114 &8817801466135809368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20294,6 +20301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDashing: 0
+  dashAttempts: 0
   dashForwardParticleSystem: {fileID: 8817801465755247061}
   dashBackwardParticleSystem: {fileID: 8817801465494004941}
   dashRightParticleSystem: {fileID: 8817801466219352082}

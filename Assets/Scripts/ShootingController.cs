@@ -36,7 +36,7 @@ public class ShootingController : MonoBehaviour
     {
        
 
-        if (Input.GetButtonDown("Fire1") && (Time.time >= nextTimeToFire) && (ManaBar.instance.stamianaRegen == false))
+        if (Input.GetButtonDown("Fire1") && (Time.time >= nextTimeToFire))
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
