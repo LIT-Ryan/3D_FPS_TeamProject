@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3c41a08f5c1aa1f49b833ce39f353d1f
   - enabled: 1
+    path: Assets/Scenes/SceneBlackRoom.unity
+    guid: d2be46bb7428f334f8977c366f0d8a7f
+  - enabled: 1
     path: Assets/Scenes/AlphaScene.unity
     guid: 3198dd6da35456d4c900a5cbc1973cbb
   m_configObjects:

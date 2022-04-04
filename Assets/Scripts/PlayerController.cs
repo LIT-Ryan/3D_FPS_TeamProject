@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     public MouseLook mouseLookScript;
     public bool isOver;
 
+    public Transform recieve;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -54,7 +56,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
+        if (PortalTeleportal.enter == true)
+        {
+            transform.position = recieve.position;
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
