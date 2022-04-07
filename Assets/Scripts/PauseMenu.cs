@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPause = false;
     public GameObject pauseMenuUI;
     public PlayerController playerController;
+  
+
     public MouseLook mouseLookScript;
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape)) && (playerController.isOver == false))
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (playerController.isOver == false) )
         {
             if (GameIsPause)
             {

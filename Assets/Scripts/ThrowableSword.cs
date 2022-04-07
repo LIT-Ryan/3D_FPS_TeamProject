@@ -60,6 +60,7 @@ public class ThrowableSword : MonoBehaviour
             ThrowSw();
             guardian.SetActive(true);
             returnSwdUI.SetActive(true);
+            SoundManager.instance.throwSound.Play();
 
         }
         else if (Input.GetKeyDown(KeyCode.V) && (throwOut == true) && (throwed == false) && (swordCalled == true))
@@ -102,6 +103,7 @@ public class ThrowableSword : MonoBehaviour
     // return
     public void ReturnSw()
     {
+        SoundManager.instance.swordFlySound.Play();
         time = 0f;
         old_pos = sword.position;
         isReturning = true;
@@ -119,11 +121,18 @@ public class ThrowableSword : MonoBehaviour
         sword.position = target.position;
         sword.rotation = target.rotation;
         throwOut = false;
-        talisSword.SetActive(false);
+        StartCoroutine(CloseUI()) ;
 
 
     }
-    Vector3 getBQCpoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
+
+    private IEnumerator CloseUI()
+    {
+        yield return new WaitForSeconds(0.1f);
+        talisSword.SetActive(false);
+    }
+
+        Vector3 getBQCpoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
     {
         float u = 1 - t;
         float tt = t * t;

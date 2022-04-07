@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverPanel;
     public MouseLook mouseLookScript;
     public bool isOver;
+    public bool isPaul;
 
     public Transform recieve;
 
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false) //Stop Time when R is pressed
         {
+            SoundManager.instance.magicSkillSound.Play();
             timemanager.StopTime();
             StaminaBar.instance.UseStamina(50);
             explosive.Explode();
@@ -127,6 +129,7 @@ public class PlayerController : MonoBehaviour
         isOver = true;
     }
 
+ 
     void OnCollisionEnter(Collision collisionInfo)
     {
        

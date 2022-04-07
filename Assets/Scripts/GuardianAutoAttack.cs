@@ -75,7 +75,7 @@ public class GuardianAutoAttack : MonoBehaviour
 
         if (fireCountdown <= 0f)
         {
-
+            SoundManager.instance.swordFlySound.Play();
             AttackEnemy();
             fireCountdown = 1f / timeBetweenAttacks;
         }
@@ -92,7 +92,7 @@ public class GuardianAutoAttack : MonoBehaviour
         SwordAttack bullet = bulletGO.GetComponent<SwordAttack>();
 
 
-
+        SoundManager.instance.thunderAttackSound.Play();
         if (bullet != null)
             bullet.Seek(enemy);
 

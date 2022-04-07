@@ -81,9 +81,9 @@ public class EnemyAI : MonoBehaviour
 
     void Die()
     {
-        
+        SoundManager.instance.enemyImpSound.Play();
         GameObject effectInst = (GameObject)Instantiate(impactEffectEnemyDie, transform.position, transform.rotation);
-        Destroy(effectInst, 2f);
+        Destroy(effectInst, 2.5f);
         Destroy(gameObject,0.2f);
         GameObject ultBall = Instantiate(DropLootPrefab, transform.position, Quaternion.identity);
         ultBall.GetComponent<Follow>().Target = dropLootTarget.transform;
@@ -176,7 +176,8 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
 
     {
-       theAnimator.SetBool("Attack", true);
+        SoundManager.instance.eButlletSound.Play();
+        theAnimator.SetBool("Attack", true);
         patroller.enabled = false;
         
         //make sure enemy does not move

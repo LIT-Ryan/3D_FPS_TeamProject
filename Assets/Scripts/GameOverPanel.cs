@@ -7,19 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameOverPanel : MonoBehaviour
 {
 
-
-    private void Start()
+    private void Awake()
     {
-       
-        
+      
+        Cursor.visible = true;
     }
-
-    void Update()
-    {
- 
-
-    }
-
     public void MainMenu()
     {
         Time.timeScale = 1f;

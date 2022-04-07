@@ -21,7 +21,7 @@ public class ULTPickUp : MonoBehaviour
         {
             Debug.Log(" ult destroy");
 
-            // LevelManager.instance.powerSound.Play();
+            SoundManager.instance.collectPowerSound.Play();
             Destroy(dropLoop);
             playerPower.currentPower = playerPower.currentPower + powerBonus;
 

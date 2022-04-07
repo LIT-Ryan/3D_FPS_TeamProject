@@ -72,7 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 9057644513394193651}
   enemy: {fileID: 0}
-  attackRange: 60
+  attackRange: 50
   timeBetweenAttacks: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 9057644513685046935}
@@ -24655,7 +24655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9057644513218269905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -123.3, y: 16.588234, z: -31.8}
+  m_LocalPosition: {x: -123.3, y: 16.588234, z: 49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9057644513710277850}
@@ -24750,7 +24750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9057644514262809240}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 134, y: 16.588234, z: -235.99997}
+  m_LocalPosition: {x: 134, y: 16.588234, z: -179.00027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9057644513710277850}
@@ -24780,7 +24780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9057644514562230884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 133.8, y: 16.588234, z: -15.2}
+  m_LocalPosition: {x: 133.8, y: 16.588234, z: 35.80026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9057644513710277850}
@@ -24810,7 +24810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9057644515342564932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -117, y: 16.588234, z: -224.2}
+  m_LocalPosition: {x: -47, y: 16.588234, z: -163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9057644513710277850}

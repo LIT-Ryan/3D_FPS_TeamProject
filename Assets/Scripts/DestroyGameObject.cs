@@ -21,8 +21,9 @@ public class DestroyGameObject : MonoBehaviour
 
     public void Die()
     {
-       GameObject effectIns=(GameObject) Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
+        //SoundManager.instance.destroySound.Play();
+        GameObject effectIns=(GameObject) Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 1f);
         Destroy(gameObject);
     }
     // Update is called once per frame
@@ -36,35 +37,65 @@ public class DestroyGameObject : MonoBehaviour
     {
         if (collis.collider.tag == "Enemy")
         {
-            Debug.Log("Hit enemy");
+            SoundManager.instance.bulletImpactSound.Play();
+          
             Die();
         }
         if (collis.collider.tag == "Player")
         {
-            Debug.Log("Hit player");
+            SoundManager.instance.bulletImpactSound.Play();
+          
             Die();
         }
 
         if (collis.collider.tag == "Wall")
         {
-            Debug.Log("Hit player");
+            SoundManager.instance.bulletImpactSound.Play();
+           
             Die();
         }
 
         if (collis.collider.tag == "Ground")
         {
-            Debug.Log("Hit player");
+            SoundManager.instance.bulletImpactSound.Play();
+       
             Die();
         }
 
         if (collis.collider.tag == "Bullet1")
         {
-            Debug.Log("Hit player");
+            SoundManager.instance.bulletImpactSound.Play();
+          
             Die();
         }
         if (collis.collider.tag == "Untagged")
         {
-            Debug.Log("Hit player");
+            SoundManager.instance.bulletImpactSound.Play();
+        
+            Die();
+        }
+        if (collis.collider.tag == "Door")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+          
+            Die();
+        }
+        if (collis.collider.tag == "Door2")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+       
+            Die();
+        }
+        if (collis.collider.tag == "Key")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if (collis.collider.tag == "KeyM2")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
             Die();
         }
     }

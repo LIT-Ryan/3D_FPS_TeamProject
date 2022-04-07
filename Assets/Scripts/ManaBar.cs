@@ -9,10 +9,9 @@ public class ManaBar : MonoBehaviour
     public Slider manaBar;
 
     public int maxStamina = 100;
-    private int currentStamina;
-    public bool stamianaRegen = false;
-
-    private WaitForSeconds regenTick = new WaitForSeconds(0.8f);
+   public int currentStamina;
+    public int usedMana = 15 ;
+    private WaitForSeconds regenTick = new WaitForSeconds(0.5f);
 
     public static ManaBar instance;
 
@@ -34,11 +33,7 @@ public class ManaBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentStamina < 20)
-        {
-            stamianaRegen = true;
-        }
-        else { stamianaRegen = false; }
+     
     }
 
 
@@ -63,7 +58,7 @@ public class ManaBar : MonoBehaviour
 
     public void UseStamina(int amount)
     {
-        if (currentStamina - amount >= 0)
+        if( (currentStamina - amount >= 0) && (currentStamina >= usedMana))
         {
             currentStamina -= amount;
             manaBar.value = currentStamina;
@@ -82,7 +77,7 @@ public class ManaBar : MonoBehaviour
             currentStamina += maxStamina / maxStamina;
             manaBar.value = currentStamina;
             yield return regenTick;
-           // stamianaRegen = true;
+           
         }
 
     }

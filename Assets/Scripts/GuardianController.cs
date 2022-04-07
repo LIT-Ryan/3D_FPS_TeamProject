@@ -30,7 +30,7 @@ public class GuardianController : MonoBehaviour
 
     void SpawnGuardian()
     {
-
+        SoundManager.instance.guardianSound.Play();
         GameObject currentGuardian = Instantiate(guardian, spawnPoint.position, Quaternion.identity);
         Destroy(currentGuardian, 15f);
         throwSword.ReturnSw();

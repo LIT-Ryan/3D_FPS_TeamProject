@@ -28,7 +28,7 @@ public class DashController : MonoBehaviour
     void Update()
     {
         HandleDash();
-        Debug.Log(isDashing);
+       
         
     }
 
@@ -38,7 +38,7 @@ public class DashController : MonoBehaviour
 
         if (isTryingToDash && !isDashing)
         {
-            if ( ManaBar.instance.stamianaRegen == false)
+            if ((ManaBar.instance.currentStamina >= ManaBar.instance.usedMana))
             {
                 OnStartDash();
                
@@ -47,8 +47,8 @@ public class DashController : MonoBehaviour
 
         if(isDashing)
         {
-
-            if(Time.time - dashStartTime <= 0.4f)
+            SoundManager.instance.dashSound.Play();
+            if (Time.time - dashStartTime <= 0.4f)
             {
                 if(playerController.movementVector.Equals(Vector3.zero))
                 {
@@ -77,7 +77,7 @@ public class DashController : MonoBehaviour
         dashStartTime = Time.time;
         dashAttempts += 1;
         PlayDashParticles();
-        ManaBar.instance.UseStamina(20);
+        ManaBar.instance.UseStamina(15);
     }
 
     void OnEndDash()
