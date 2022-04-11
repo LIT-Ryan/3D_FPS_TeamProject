@@ -62,11 +62,12 @@ public class PlayerController : MonoBehaviour
             transform.position = recieve.position;
         }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+       
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
-            isGrounded = true;
+     
         }
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.z = Input.GetAxis("Vertical");
@@ -74,6 +75,19 @@ public class PlayerController : MonoBehaviour
         movementVector = transform.right * inputVector.x + transform.forward * inputVector.z;
 
         controller.Move(movementVector * speed * Time.deltaTime);
+
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+
+
 
         if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false) //Stop Time when R is pressed
         {
@@ -92,16 +106,8 @@ public class PlayerController : MonoBehaviour
 
         }
        
-        if (Input.GetButtonDown("Jump") && (isGrounded))
-        {
-            isGrounded = false;
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
+     
     
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
 
     }
 

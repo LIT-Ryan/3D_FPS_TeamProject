@@ -20,6 +20,7 @@ TagManager:
   - KeyM2
   - DoorM2
   - Door2
+  - ThrowSword
   layers:
   - Default
   - TransparentFX

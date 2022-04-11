@@ -62,7 +62,7 @@ public class DestroyGameObject : MonoBehaviour
             Die();
         }
 
-        if (collis.collider.tag == "Bullet1")
+        if (collis.collider.tag == "Bullet")
         {
             SoundManager.instance.bulletImpactSound.Play();
           
@@ -93,6 +93,59 @@ public class DestroyGameObject : MonoBehaviour
             Die();
         }
         if (collis.collider.tag == "KeyM2")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if (other.tag == "Wall")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if(other.tag == "Ground")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if(other.tag == "Door")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if(other.tag == "Door2")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if (other.tag == "Key")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if (other.tag == "Key2")
+        {
+            SoundManager.instance.bulletImpactSound.Play();
+
+            Die();
+        }
+        if (other.tag == "Untagged")
         {
             SoundManager.instance.bulletImpactSound.Play();
 

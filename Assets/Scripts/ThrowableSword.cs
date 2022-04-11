@@ -22,10 +22,12 @@ public class ThrowableSword : MonoBehaviour
     public GameObject talisSword;
     public bool swordCalled = false;
 
-
+    public GameObject crosshair2;
+    public GameObject crosshairULT;
+    //public Animator anim;
     private void Start()
     {
-    
+      //  anim = GetComponent<Animator>();
     }
     void Awake()
     {
@@ -44,11 +46,15 @@ public class ThrowableSword : MonoBehaviour
         }
         if((playerPower.currentPower >= power) && (Input.GetKeyDown(KeyCode.V)) && (swordCalled == false))
         {
+            crosshairULT.SetActive(true);
+            crosshair2.SetActive(true);
             talisSword.SetActive(true);
             swordCalled = true;
         }
         else if ((playerPower.currentPower >= power) && (Input.GetKeyDown(KeyCode.V)) && (swordCalled == true))
         {
+            crosshairULT.SetActive(false);
+            crosshair2.SetActive(false);
             talisSword.SetActive(false);
             swordCalled = false;
         }
@@ -61,7 +67,8 @@ public class ThrowableSword : MonoBehaviour
             guardian.SetActive(true);
             returnSwdUI.SetActive(true);
             SoundManager.instance.throwSound.Play();
-
+            crosshairULT.SetActive(false);
+            //anim.SetBool("bool", true);
         }
         else if (Input.GetKeyDown(KeyCode.V) && (throwOut == true) && (throwed == false) && (swordCalled == true))
         {
@@ -69,6 +76,7 @@ public class ThrowableSword : MonoBehaviour
             swordCalled = false;
             ReturnSw();
             returnSwdUI.SetActive(false);
+           // anim.SetBool("bool", true);
         }
         else if (isReturning)
         {
@@ -96,7 +104,7 @@ public class ThrowableSword : MonoBehaviour
         sword.transform.parent = null;
         sword.isKinematic = false;
         sword.AddForce(Camera.main.transform.TransformDirection(Vector3.forward) * throwForce, ForceMode.Impulse);
-        sword.AddTorque(sword.transform.TransformDirection(Vector3.right) * 100, ForceMode.Impulse);
+        sword.AddTorque(sword.transform.TransformDirection(Vector3.right) * 360, ForceMode.Impulse);
         throwOut = true;
 
     }
@@ -122,14 +130,16 @@ public class ThrowableSword : MonoBehaviour
         sword.rotation = target.rotation;
         throwOut = false;
         StartCoroutine(CloseUI()) ;
-
+       // anim.SetBool("bool", false);
 
     }
 
     private IEnumerator CloseUI()
     {
+        //crosshairULT.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         talisSword.SetActive(false);
+        crosshair2.SetActive(false);
     }
 
         Vector3 getBQCpoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)

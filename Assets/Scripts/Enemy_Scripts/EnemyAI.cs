@@ -155,15 +155,18 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("Bullet1 Hit");
             TakeDamage(5);
         }
-        if (collisionInfo.collider.tag == "MagicBullet")
-        {
-            Debug.Log("Bullet1 Hit");
-            TakeDamage(10);
-        }
+       
 
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag =="MagicBullet")
+        {
+            TakeDamage(10);
+        }
+    }
+
     private void ChasePlayer()
 
     {
@@ -190,7 +193,7 @@ public class EnemyAI : MonoBehaviour
 
             GameObject rb = Instantiate(projecttile, attackPoint.position, Quaternion.identity);
             rb.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-            rb.GetComponent<Rigidbody>().AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.up * 9f, ForceMode.Impulse);
             theAnimator.SetBool("Attack", true);
 
 

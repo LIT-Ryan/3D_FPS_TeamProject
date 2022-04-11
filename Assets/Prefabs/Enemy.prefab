@@ -164,10 +164,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.92
-  m_Height: 1
+  m_Radius: 0.89006066
+  m_Height: 2.5380316
   m_Direction: 1
-  m_Center: {x: 0, y: 0.69, z: 0}
+  m_Center: {x: 1.4992663e-10, y: 0.49546784, z: -0.029939333}
 --- !u!95 &1505042335617432968
 Animator:
   serializedVersion: 3
@@ -1603,8 +1603,8 @@ MonoBehaviour:
   timeBetweenAttacks: 1.2
   projecttile: {fileID: 5125999535935760989, guid: a1216ef449b38284f9f05ed1f1687304, type: 3}
   attackPoint: {fileID: 5804905400133957163}
-  sightRange: 25
-  attackRange: 20
+  sightRange: 30
+  attackRange: 25
   playerInSightRange: 0
   playerInAttackRange: 0
   DropLootPrefab: {fileID: 2112088666514474900, guid: 47279cc9b81f2ab4bb572ffd566fb1a3, type: 3}
