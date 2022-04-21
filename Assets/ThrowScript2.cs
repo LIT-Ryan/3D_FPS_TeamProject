@@ -22,7 +22,7 @@ public class ThrowScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && playerPower.currentPower >= 30 && PlayerController.isStoping == false && DashController.isDashing == false )
+        if (Input.GetKeyDown(KeyCode.V) && playerPower.currentPower >= 0 && PlayerController.isStoping == false && DashController.isDashing == false )
         {
             if (isHolding)
             {
@@ -40,7 +40,7 @@ public class ThrowScript2 : MonoBehaviour
             }
             
         }
-        if (Input.GetButtonDown("Fire2") && playerPower.currentPower >= 30 && isHolding && PlayerController.isStoping == false && DashController.isDashing == false )
+        if (Input.GetButtonDown("Fire2") && playerPower.currentPower >= 0 && isHolding && PlayerController.isStoping == false && DashController.isDashing == false )
         {
             lefthandAnim.SetBool("Shoot", true);
             lefthandAnim.SetBool("Raise", false);
