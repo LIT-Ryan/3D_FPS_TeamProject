@@ -16,6 +16,8 @@ public class StaminaBar : MonoBehaviour
 
     public static StaminaBar instance;
 
+    public Animator StaminaUIAnim;
+
 
     private void Awake()
     {
@@ -36,7 +38,12 @@ public class StaminaBar : MonoBehaviour
     {
         if (currentStamina >= 50)
         {
+            StaminaUIAnim.SetBool("IsReady", true);
             stamianaRegen = false;
+        }
+        else
+        {
+            StaminaUIAnim.SetBool("IsReady", false);
         }
     }
 

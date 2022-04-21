@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     public bool speedUp;
 
-    public int maxPower = 50;
+    public int maxPower = 25;
     public int currentPower;
     public PowerBar powerBar;
 
@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
     public MouseLook mouseLookScript;
     public bool isOver;
     public bool isPaul;
+
+    public static bool isStoping;
+
+   
 
     public Transform recieve;
 
@@ -89,19 +93,22 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false) //Stop Time when R is pressed
+        if (Input.GetKeyDown(KeyCode.R) && StaminaBar.instance.stamianaRegen == false && ThrowScript2.isHolding == false && DashController.isDashing == false) //Stop Time when R is pressed
         {
+            isStoping = true;
+            StartCoroutine(CoolDown());
             SoundManager.instance.magicSkillSound.Play();
             timemanager.StopTime();
             StaminaBar.instance.UseStamina(50);
-            explosive.Explode();
-            explosive2.Explode();
+            //explosive.Explode();
+            //explosive2.Explode();
 
 
         }
         if (timemanager.TimeIsStopped && StaminaBar.instance.stamianaRegen == true)  //Continue Time when E is pressed
         {
-            timemanager.ContinueTime();
+           isStoping = false;
+           timemanager.ContinueTime();
 
 
         }
@@ -111,6 +118,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(5);
+    }
 
     public void TakeDamage(int damage)
 

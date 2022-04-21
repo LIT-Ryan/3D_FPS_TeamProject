@@ -5,7 +5,7 @@ using UnityEngine;
 public class ULTPickUp : MonoBehaviour
 {
     PlayerController playerPower;
-    public int powerBonus = 25;
+    public int powerBonus = 5;
     public GameObject dropLoop;
 
     void Awake()
@@ -23,7 +23,7 @@ public class ULTPickUp : MonoBehaviour
 
             SoundManager.instance.collectPowerSound.Play();
             Destroy(dropLoop);
-            playerPower.currentPower = playerPower.currentPower + powerBonus;
+            playerPower.currentPower = playerPower.currentPower + 5;
 
 
         }

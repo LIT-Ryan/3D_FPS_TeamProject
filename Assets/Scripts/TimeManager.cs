@@ -5,9 +5,11 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public bool TimeIsStopped;
+    public Animator LeftHandAnim;
 
     public void ContinueTime()
     {
+        LeftHandAnim.SetBool("TimeStop", false);
         TimeIsStopped = false;
 
         var objects = FindObjectsOfType<TimeBody>();  //Find Every object with the Timebody Component
@@ -19,6 +21,7 @@ public class TimeManager : MonoBehaviour
     }
     public void StopTime()
     {
+        LeftHandAnim.SetBool("TimeStop", true);
         TimeIsStopped = true;
     }
 }

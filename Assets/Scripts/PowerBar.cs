@@ -11,14 +11,14 @@ public class PowerBar : MonoBehaviour
 	public void SetMaxPower(int power)
 
 	{
-		slider.maxValue = power;
-		slider.value = power;
+		slider.maxValue = 30;
+		slider.value = 30;
 
 	}
 
 	public void SetPower(int power)
 	{
-		slider.value = power;
+		slider.value = 30;
 	}
 
 

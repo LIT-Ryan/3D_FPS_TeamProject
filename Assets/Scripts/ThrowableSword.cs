@@ -25,6 +25,8 @@ public class ThrowableSword : MonoBehaviour
     public GameObject crosshair2;
     public GameObject crosshairULT;
     //public Animator anim;
+
+    public Animator SwordAnim;
     private void Start()
     {
       //  anim = GetComponent<Animator>();
@@ -61,21 +63,23 @@ public class ThrowableSword : MonoBehaviour
 
         if ( (Input.GetButtonDown("Fire2")) && (throwed == true) && (playerPower.currentPower >= playerPower.maxPower) && (swordCalled == true))
         {
-            throwed = false;
-            playerPower.currentPower = playerPower.currentPower - power;
-            ThrowSw();
-            guardian.SetActive(true);
-            returnSwdUI.SetActive(true);
+            SwordAnim.SetTrigger("Shoot");
+            //throwed = false;
+            //playerPower.currentPower = playerPower.currentPower - power;
+            //ThrowSw();
+            //guardian.SetActive(true);
+            //returnSwdUI.SetActive(true);
             SoundManager.instance.throwSound.Play();
-            crosshairULT.SetActive(false);
+            //crosshairULT.SetActive(false);
             //anim.SetBool("bool", true);
         }
         else if (Input.GetKeyDown(KeyCode.V) && (throwOut == true) && (throwed == false) && (swordCalled == true))
         {
-            throwed = true;
-            swordCalled = false;
-            ReturnSw();
-            returnSwdUI.SetActive(false);
+            SwordAnim.SetTrigger("UltRD");
+            //throwed = true;
+            //swordCalled = false;
+            //ReturnSw();
+            //returnSwdUI.SetActive(false);
            // anim.SetBool("bool", true);
         }
         else if (isReturning)

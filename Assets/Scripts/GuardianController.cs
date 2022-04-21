@@ -12,6 +12,7 @@ public class GuardianController : MonoBehaviour
 
     public GameObject returnSwdUI;
 
+    public bool isCooldown;
     Animator anim;
 
     void Start()
@@ -33,9 +34,9 @@ public class GuardianController : MonoBehaviour
         SoundManager.instance.guardianSound.Play();
         GameObject currentGuardian = Instantiate(guardian, spawnPoint.position, Quaternion.identity);
         Destroy(currentGuardian, 15f);
-        throwSword.ReturnSw();
-        throwSword.throwed = true;
-       returnSwdUI.SetActive(false);
+        //throwSword.ReturnSw();
+        //throwSword.throwed = true;
+       //returnSwdUI.SetActive(false);
 
     }
 
@@ -46,11 +47,19 @@ public class GuardianController : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisionInfo.collider.tag == "Enemy")
+        if (collisionInfo.collider.tag == "Enemy" && isCooldown == false)
         {
             Debug.Log("Spawn");
+            StartCoroutine(Cooldown());
+            isCooldown = true;
             SpawnGuardian();
         }
 
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isCooldown = false;
     }
 }

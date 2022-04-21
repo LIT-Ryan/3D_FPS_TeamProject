@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DashController : MonoBehaviour
 {
-    public bool isDashing;
+    public static bool isDashing;
     public int dashAttempts;
     private float dashStartTime;
+    
+    public Animator leftHandAnim;
 
     PlayerController playerController;
     CharacterController characterController;
@@ -35,10 +37,11 @@ public class DashController : MonoBehaviour
     void HandleDash()
     {
         bool isTryingToDash = Input.GetKeyDown(KeyCode.LeftShift);
+        leftHandAnim.SetBool("Dash",isDashing);
 
         if (isTryingToDash && !isDashing)
         {
-            if ((ManaBar.instance.currentStamina >= ManaBar.instance.usedMana))
+            if ((ManaBar.instance.currentStamina >= ManaBar.instance.usedMana) && ThrowScript2.isHolding == false && PlayerController.isStoping == false)
             {
                 OnStartDash();
                

@@ -11,6 +11,8 @@ public class ShootingController : MonoBehaviour
     public float spread = 1f;
     public float fireRate = 15f;
 
+    public Animator shootAnim;
+
     public Camera fpsCam;
     public Transform attackPoint;
     public float nextTimeToFire = 0f;
@@ -38,6 +40,7 @@ public class ShootingController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && (Time.time >= nextTimeToFire) && (ManaBar.instance.currentStamina >= ManaBar.instance.usedMana))
         {
+            shootAnim.SetTrigger("Shoot");
             SoundManager.instance.bulletSound.Play();
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
