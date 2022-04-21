@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         }
         if (timemanager.TimeIsStopped && StaminaBar.instance.stamianaRegen == true)  //Continue Time when E is pressed
         {
-           isStoping = false;
+           
            timemanager.ContinueTime();
 
 
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(5);
+        isStoping = false;
     }
 
     public void TakeDamage(int damage)
