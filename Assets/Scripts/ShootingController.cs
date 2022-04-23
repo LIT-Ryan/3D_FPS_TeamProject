@@ -16,6 +16,7 @@ public class ShootingController : MonoBehaviour
     public Camera fpsCam;
     public Transform attackPoint;
     public float nextTimeToFire = 0f;
+    public Transform TargetPointWorld;
 
    // public int maxStamina = 50;
    // public int currentStamina;
@@ -70,13 +71,13 @@ public class ShootingController : MonoBehaviour
         else
         { targetPoint = ray.GetPoint(10); }
 
-        Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
+        Vector3 directionWithoutSpread = TargetPointWorld.position - attackPoint.position;
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, attackPoint.rotation);
         currentBullet.transform.forward = directionWithSpread.normalized;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * range, ForceMode.Impulse);
-        Destroy(currentBullet, 3f);
+        Destroy(currentBullet, 10f);
     }
 }

@@ -21,6 +21,7 @@ TagManager:
   - DoorM2
   - Door2
   - ThrowSword
+  - Collider
   layers:
   - Default
   - TransparentFX
