@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape)) && (playerController.isOver == false) )
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (playerController.isOver == false) && TutorialTrigger.tutoring == false )
         {
             if (GameIsPause)
             {

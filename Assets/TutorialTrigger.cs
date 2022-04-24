@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialTrigger : MonoBehaviour
 {
     public GameObject UIObj;
+    public static bool tutoring = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,9 @@ public class TutorialTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            StartCoroutine(Cooldown());
             UIObj.SetActive(false);
+            
         }
     }
 
@@ -25,7 +28,14 @@ public class TutorialTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            tutoring = true;
             UIObj.SetActive(true);
         }
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        tutoring = false;
     }
 }
