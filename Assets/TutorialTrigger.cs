@@ -7,6 +7,7 @@ public class TutorialTrigger : MonoBehaviour
     public GameObject UIObj;
     public static bool tutoring = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,10 @@ public class TutorialTrigger : MonoBehaviour
         {
             StartCoroutine(Cooldown());
             UIObj.SetActive(false);
+            Time.timeScale = 1;
             
+                        
+
         }
     }
 
@@ -28,14 +32,21 @@ public class TutorialTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            
             tutoring = true;
             UIObj.SetActive(true);
+            Time.timeScale = 0;
+            
+            
         }
     }
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         tutoring = false;
+    
+        
+        
     }
 }
